@@ -1,4 +1,9 @@
 const express = require('express');
 const router = express.Router();
+const mealsController = require('../controllers/meals');
 
-//GET meal input form
+router.get('/', mealsController.getAllMeals);
+router.get('/new', mealsController.getNewMealForm);
+router.post('/', mealsController.createNewMeal);
+
+module.exports = router;

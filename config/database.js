@@ -1,16 +1,17 @@
 const mongoose = require('mongoose');
 
-mongoose.connect(process.env.DATABASE_URL, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    useCreateIndex: true
-  });
+// mongoose.connect(process.env.DATABASE_URL, {
+//     useNewUrlParser: true,
+//     useUnifiedTopology: true,
+//     useCreateIndex: true
+// });
 
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^  
   //THIS IS WHAT CONNECTS APP TO THE CLOUD
   // ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 
-  mongoose.connect('mongodb://localhost/mongoose-meal-planner', {
+
+mongoose.connect('mongodb://localhost/mongoose-meal-planner', {
   useNewUrlParser: true,
   useCreateIndex: true,
   useUnifiedTopology: true
