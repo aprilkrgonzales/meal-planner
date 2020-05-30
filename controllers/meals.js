@@ -4,6 +4,13 @@ module.exports = {
     getNewMealForm,
     getAllMeals,
     createNewMeal,
+    showNewMeal
+}
+
+function showNewMeal(req, res) {
+    Meal.find({}, function(err, allMealsFromDb) {
+        res.render('/meals/show');
+    })
 }
 
 function createNewMeal(req, res) {

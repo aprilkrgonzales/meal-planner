@@ -4,13 +4,25 @@
 
 <table>
     <tr>
-        <td>Item</td>
-        <td>Done?</td>
-
-        <td>no</td>
-    </tr> 
+        <td><strong>Meal</strong></td>
+        <td><strong>Item</strong></td>
+        <td><strong> Done</strong></td>
+    </tr>
+    <% allMealsReferenceForEJS.forEach(function(eachMeal) { %>
+        <tr>
+            <td><%= eachMeal.mealType %></td>
+            <td><%= eachMeal.name %></td>
+            <td>
+                <form action="/meals/<%= eachMeal._id %>?_method=DELETE" method="POST" style="display:inline;">
+                    <input type="checkbox" value="DONE">
+                    <input type="submit" value="DELETE">
+                </form>
+            </td>
+        </tr>
+    <% }) %>
 </table>
 
+  <a href="/meals/new">Add Meal</a>
 
 
 <%- include('../partials/footerPartial.ejs') %>
