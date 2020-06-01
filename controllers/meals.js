@@ -22,6 +22,8 @@ function createNewMeal(req, res) {
 
 function getAllMeals(req, res) {
     Meal.find({}, function(err, allMealsFromDb) {
+        console.log(Meal.typeof, '<-------- type of meal');
+        console.log(Array.from(Meal), '<--------meal array');
         res.render('userViews/groceries', {
             allMealsReferenceForEJS: allMealsFromDb
         })
