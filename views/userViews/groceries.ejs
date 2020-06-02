@@ -2,28 +2,21 @@
 
 <p>THIS IS THE GROCERY LIST PAGE</p>
 
-<table>
-    <tr>
-        <td><strong>Meal</strong></td>
-        <td><strong>Item</strong></td>
-        <td><strong> Done</strong></td>
-    </tr>
+
+<ul>
     <% allMealsReferenceForEJS.forEach(function(eachMeal) { %>
-        <tr>
-            <td><%= eachMeal.name %></td>
-            <td>
-                <form action="/meals/<%= eachMeal._id %>?_method=DELETE" method="POST" style="display:inline;">
-                    <input type="checkbox" value="DONE">
-
-                </form>
-            </td>
-            <td> <small> <%= eachMeal.createdAt %> </small> </td>
-        </tr>
-    <% }) %>
-</table>
-
+      <li>
+        <form action="/meals/<%= eachMeal._id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form>
+        <p><%= eachMeal.name %></p>
+          - 
+        <%= eachMeal.done ? 'done' : 'not done' %>
+      </li>
+    <% }); %>
+  </ul>
 
 
 <%- include('../partials/footerPartial.ejs') %>
-
 
