@@ -9,6 +9,7 @@ router.get('/:id', mealsController.showNewMeal);
 
 router.post('/', mealsController.createNewMeal);
 router.delete('/:id', mealsController.deleteOneMeal);
+router.delete('/:mealId/items/:itemId', mealsController.deleteOneItem);
 //router.put('/:id', mealsController.updateList);
 
 

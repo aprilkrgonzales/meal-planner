@@ -6,11 +6,17 @@
 <ul>
     <% allMealsReferenceForEJS.forEach(function(eachMeal) { %>
       <li>
-        <form action="/meals/<%= eachMeal._id %>?_method=DELETE"
-          class="delete-form" method="POST">
-          <button type="submit">X</button>
-        </form>
-        <p><%= eachMeal.name %></p>
+
+       <% eachMeal.groceries.forEach(function(item) { %>
+        <p>
+            <form action="/meals/<%= eachMeal._id %>/items/<%= item._id %>?_method=DELETE"
+                class="delete-form" method="POST">
+                <button type="submit">X</button>
+              </form>
+            <%= item.content %>
+        </p>
+           
+       <% }) %>
           - 
         <%= eachMeal.done ? 'done' : 'not done' %>
       </li>

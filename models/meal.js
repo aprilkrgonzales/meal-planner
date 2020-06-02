@@ -1,19 +1,22 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
-const listSchema = new Schema({
+const listItemSchema = new Schema({
     content: String,
-    done: false,
+    done: {
+        type: Boolean, 
+        default: false
+    } ,
 }, {
     timestamps: true
 })
 
 const mealSchema = new Schema({
-    name: {
+    mealType: {
         type: String,
         required: true
     },
-    groceries: [listSchema],
+    groceries: [listItemSchema],
 }, { 
     timestamps: true 
 })
