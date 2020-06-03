@@ -9,7 +9,7 @@
 
        <% eachMeal.groceries.forEach(function(item) { %>
         <p>
-            <form action="/meals/<%= eachMeal._id %>/items/<%= item._id %>?_method=DELETE"
+            <form action="/meals/<%= eachMeal._id %>/items/<%= item._id %>?_method=PUT"
                 class="delete-form" method="POST">
                 <button type="submit">X</button>
               </form>

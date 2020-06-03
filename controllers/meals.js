@@ -10,40 +10,56 @@ module.exports = {
     deleteOneItem
 }
 
-function deleteOneItem(req, res) {
-    // meals groceries array item id
-    //pass meal id //serach through groceries
-    item._id 
+//update function - PUT //-------------------------
+//find meal id
+//get array of ingedients
+//index of id of ingredient  //look up syntax
+//splice
+//save the changes to the meal
+
+////find grocery list item id
+////find by id and remove
+
+//MAYBE find just the id of the ingredient and remove that - will this update the meal
+
+function deleteOneItem(req, res) {    
+    console.log(req.params.mealId);
+    //// find the meal id = Meal(req.body._id)
+    //const eachItem = Meal.find({req.params.mealId});
+    Meal.findById(req.params.mealId, function(err, meal) {
+        console.log(meal);
+    })
+        //res.send("this is a resource");
+        //// find the grocery id = 
+    //console.log("THIS IS THE CONSOLE LOG1 ------->", eachItem,"<------------------------");
+    //console.log("THIS IS THE CONSOLE LOG2 ------->", eachItem._id,"<------------------------");
+        //remove grocery that matches the id
+            //req.body.groceries.splice(eachItem._id, 1);
+
+    
+
+        
+
+
+
+
+    //render the meals page
+
+    //})
+
+
+}
+
+function deleteOneMeal(req, res) {
+   Meal.findByIdAndRemove(req.params.id, function(err) {
+       res.redirect('/meals');
+   })
 }
 
 function updateMeal(req, res) {
     req.body.done = !!req.body.done;
     Meal.update(req.params.id, req.body);
     res.redirect(`/meals/${req.params.id}`);
-}
-
-// function deleteOneAuthor(req, res) {
-//     Author.findByIdAndRemove(req.params.authorIdToDelete, function(err, deleteAuthorConfirmation) {
-//         Book.deleteMany({author: req.params.authorIdToDelete}, function(err) {
-//             res.redirect('/authors');
-//         })
-//     })
-// }
-
-function deleteOneMeal(req, res) {
-    //res.send("this is hitting the meals controller");
-    //console.log(req.params.id, 'REQ PARAMS IDDDDDDDDD');
-   // Meal.deleteOne(req.params.id);
-   //console.log(Meal._id, "meals dot underscore id"); //output: undefined
-   //console.log(req.body, "reqqqqqq dot bodyyyyyyyyyy"); // output: {}
-   //console.log(req.params.id, "reqqqqqq params id"); // output: 5ed2ac.....
-   ////const idx = meals.findIndex(meal => meal._id === parseInt(id));
-   //const idx = req.params.id;
-   //meals.splice(idx, 1);
-
-   Meal.findByIdAndRemove(req.params.id, function(err) {
-       res.redirect('/meals');
-   })
 }
 
 function showNewMeal(req, res) {
@@ -58,7 +74,6 @@ function createNewMeal(req, res) {
         return {content: item.trim()};
     });
     Meal.create(req.body, function(err, newMeal) {
-        //console.log(req.body.name,'<--------Meal');
         res.redirect('/meals');
     })
 }
@@ -66,33 +81,9 @@ function createNewMeal(req, res) {
 function getAllMeals(req, res) {
     Meal.find({}, function(err, allMealsFromDb) {
         //res.send("this is hitting the get all meals controller");
-        console.log(allMealsFromDb, "all meal objects");
-       // console.log(allMealsFromDb.typeof, "TYPE OF");
-        console.log(req.params.id);
-       
-        //console.log(meals.modelName, "MODEL NAME");
-        
-        // for(name in allMealsFromDb) {
-        //     console.log(name, '<--------name');
-        //     let value = allMealsFromDb[name];
-        //     console.log(value, "<----------value");
-        //     console.log(allMealsFromDb[name], "<----------db name");
-        // }
         res.render('userViews/groceries', {
             allMealsReferenceForEJS: allMealsFromDb
         })
-        
-        //console.log(allMealsFromDb._id); //output: undefined 
-        //console.log(Meal.typeof, '<-------- type of meal');
-        //console.log(Array.from(Meal), '<--------meal array');
-        //console.log(Meal, "Meal!!!!", Meal.typeof);
-        //console.log(JSON.stringify(allMealsFromDb.name), "STRING PLSSSSS");
-        //let mealName = allMealsFromDb[name];
-        //console.log(mealName);
-        //console.log(req.body.id); //output: undefined
-        //console.log(allMealsFromDb.id); //output: undefined
-        //allMealsFromDb.forEach();
-        
     })
 }
 
