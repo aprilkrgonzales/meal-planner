@@ -6,16 +6,14 @@
     <% allMealsReferenceForEJS.forEach(function(eachMeal) { %>
       <li>
        <% eachMeal.groceries.forEach(function(item) { %>
-        <p>
             <form action="/meals/<%= eachMeal._id %>/items/<%= item._id %>?_method=PUT"
                 class="delete-form" method="POST">
                 <button type="submit">X</button>
-              </form>
-            <%= item.content %>
-        </p> 
+            </form>
+             <%= item.content %> <br>
        <% }) %>
-      </li>
-    <% }); %>
+      </li> 
+    <% }); %> 
   </ul>
 
 <%- include('../partials/footerPartial.ejs') %>

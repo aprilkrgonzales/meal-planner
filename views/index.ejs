@@ -2,5 +2,14 @@
 
 <p>THIS IS THE HOME PAGE</p><br>
 
+<tbody>
+    <% allMealsReferenceForEJS.forEach(function(eachMeal) { %>
+    <tr>
+        <td> <%= eachMeal.mealType %> </td>
+        <td> <%= eachMeal.groceries.content %> </td>
+        <td> <%= eachMeal.createdAt %> </td>
+    </tr> <br>
+    <% }) %>
+</tbody>
 
 <%- include('./partials/footerPartial.ejs') %>
