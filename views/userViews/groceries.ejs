@@ -2,11 +2,9 @@
 
 <p>THIS IS THE GROCERY LIST PAGE</p>
 
-
 <ul>
     <% allMealsReferenceForEJS.forEach(function(eachMeal) { %>
       <li>
-
        <% eachMeal.groceries.forEach(function(item) { %>
         <p>
             <form action="/meals/<%= eachMeal._id %>/items/<%= item._id %>?_method=PUT"
@@ -14,13 +12,11 @@
                 <button type="submit">X</button>
               </form>
             <%= item.content %>
-        </p>
-           
+        </p> 
        <% }) %>
       </li>
     <% }); %>
   </ul>
-
 
 <%- include('../partials/footerPartial.ejs') %>
 

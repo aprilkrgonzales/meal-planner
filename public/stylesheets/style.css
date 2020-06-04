@@ -9,4 +9,5 @@ a {
 
 li {
   list-style: none;
+  display: list-item;
 }
