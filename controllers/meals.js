@@ -10,44 +10,22 @@ module.exports = {
     deleteOneItem
 }
 
-//update function - PUT //-------------------------
-//find meal id
-//get array of ingedients
-//index of id of ingredient  //look up syntax
-//splice
-//save the changes to the meal
-
-////find grocery list item id
-////find by id and remove
-
-//MAYBE find just the id of the ingredient and remove that - will this update the meal
-
 function deleteOneItem(req, res) {    
-    console.log(req.params.mealId);
-    //// find the meal id = Meal(req.body._id)
-    //const eachItem = Meal.find({req.params.mealId});
-    Meal.findById(req.params.mealId, function(err, meal) {
-        console.log(meal);
-    })
-        //res.send("this is a resource");
-        //// find the grocery id = 
-    //console.log("THIS IS THE CONSOLE LOG1 ------->", eachItem,"<------------------------");
-    //console.log("THIS IS THE CONSOLE LOG2 ------->", eachItem._id,"<------------------------");
-        //remove grocery that matches the id
-            //req.body.groceries.splice(eachItem._id, 1);
-
+   // console.log(meal, '<-------------THIS IS THE CONSOLE LOG');
+    //console.log(req.params.itemId, '<-------------THIS IS THE CONSOLE LOG');
+    //console.log(req.body.params, '<----***********---------THIS IS THE CONSOLE LOG');
     
-
+    
+    
+    Meal.findOne({'groceries._id': req.params.id}, function(err, meal) {
         
-
-
-
-
-    //render the meals page
-
-    //})
-
-
+        const grocery = meal.groceries.id(req.params.id);
+        grocery.remove();
+        meal.save(function(err) {
+            res.redirect('/meals');
+        });
+        console.log(req.params.itemId, '<----~~~~~~~~~---------THIS IS THE CONSOLE LOG');
+    })
 }
 
 function deleteOneMeal(req, res) {

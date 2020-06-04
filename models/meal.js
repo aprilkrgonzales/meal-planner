@@ -17,6 +17,10 @@ const mealSchema = new Schema({
         required: true
     },
     groceries: [listItemSchema],
+    userId: {
+        type: Schema.Types.ObjectId, 
+        ref: 'User' 
+    }     
 }, { 
     timestamps: true 
 })
