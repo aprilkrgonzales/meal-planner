@@ -11,20 +11,25 @@ module.exports = {
 }
 
 function deleteOneItem(req, res) {    
-   // console.log(meal, '<-------------THIS IS THE CONSOLE LOG');
     //console.log(req.params.itemId, '<-------------THIS IS THE CONSOLE LOG');
     //console.log(req.body.params, '<----***********---------THIS IS THE CONSOLE LOG');
     
     
     
-    Meal.findOne({'groceries._id': req.params.id}, function(err, meal) {
+    Meal.findOne({'_id': req.params.mealId}, function(err, meal) {        
+        //res.send('this is a resource');
         
-        const grocery = meal.groceries.id(req.params.id);
-        grocery.remove();
-        meal.save(function(err) {
+        //console.log(req.params, '<-------------THIS IS THE CONSOLE LOG'); //OUTPUT: mealId and itemId
+        console.log(meal, '<-------------THIS IS THE CONSOLE LOG'); //OUTPUT: mealId and itemId
+        
+        //const grocery = req.params.itemId;
+        //meal.grocery.remove();
+        
+        meal.groceries.remove(req.params.itemId);
+        meal.save(function (err) {
             res.redirect('/meals');
         });
-        console.log(req.params.itemId, '<----~~~~~~~~~---------THIS IS THE CONSOLE LOG');
+       
     })
 }
 
