@@ -1,14 +1,24 @@
 const express = require('express');
 const router = express.Router();
-const passport = require('passport');
+//const indexController = require('../controllers/index');
+const mealsController = require('../controllers/meals');
 const Meal = require('../models/meal');
 
+
+// router.get('/', mealsController.getAllMeals);
+
+
+//const mealsController = require('../controllers/meals');
+
 router.get('/', function(req, res, next) {
-  Meal.find({}, function(err, allMealsFromDb) {
-    res.render('index', {
-        allMealsReferenceForEJS: allMealsFromDb
+    Meal.find({}, function(err, allMealsFromDb) {
+        //console.log(allMealsFromDb, '<*<*<*<------ CONSOLE LOG');
+        //console.log(Meal.id, '<<<<------ CONSOLE LOG');
+        res.render('index', {
+            allMealsReferenceForEJS: allMealsFromDb
+        });
     });
-  });
 });
+
 
 module.exports = router;

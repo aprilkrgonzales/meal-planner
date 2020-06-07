@@ -33,7 +33,6 @@ function updateMeal(req, res) {
 
 function showNewMeal(req, res) {
     Meal.find({}, function(err, allMealsFromDb) {
-        res.send("this is hitting the show new meal controller");
         res.render('/meals/show');
     })
 }
@@ -44,12 +43,11 @@ function createNewMeal(req, res) {
     });
     Meal.create(req.body, function(err, newMeal) {
         res.redirect('/meals');
-    })
+    });
 }
 
 function getAllMeals(req, res) {
     Meal.find({}, function(err, allMealsFromDb) {
-        //res.send("this is hitting the get all meals controller");
         res.render('userViews/groceries', {
             allMealsReferenceForEJS: allMealsFromDb
         })

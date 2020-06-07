@@ -1,6 +1,6 @@
 # Meal Planner
 
-Meal Planner is designed to create a grocery list from the meals a user says they will eat. 
+Meal Planner is designed to create a grocery list from the meals a user creates. 
 
 ## Screenshots
 
@@ -23,4 +23,4 @@ Meal Planner is designed to create a grocery list from the meals a user says the
 
 ## Next Steps
 
-- Ability to sort meals by meal type of breakfast, lunch, dinner
+- Ability to sort meals by type: breakfast, lunch, dinner
