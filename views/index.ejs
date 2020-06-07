@@ -6,20 +6,20 @@
         <tr>
             <th>Meal Type</th>
             <th>Details</th>
-        </tr><br>  
+        </tr> 
     </thead>
     <tbody>
         <% allMealsReferenceForEJS.forEach(function(eachMeal) { %>
         <tr>
-            <td>
+            <td class="type">
                 <%= eachMeal.mealType %>
             </td>
             <% eachMeal.groceries.forEach(function(item) { %>
-            <td>
+            <td class="content">
                 <%= item.content %>
             </td>
             <% }) %>
-        </tr><br> 
+        </tr> 
         <% }) %>
     </tbody>
 </table>

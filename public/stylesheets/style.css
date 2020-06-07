@@ -22,3 +22,15 @@ table{
 th {
   border: 1px solid black
 }
+
+tr > th {
+  background-color: lightgrey;
+}
+
+.type {
+  font-style: italic;
+}
+
+.content {
+  border: 1px solid black;
+}
