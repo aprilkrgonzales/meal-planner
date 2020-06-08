@@ -4,9 +4,9 @@ Meal Planner is designed to create a grocery list from the meals a user creates.
 
 ## Screenshots
 
-<img src="https://imgur.com/6CaswQS" alt="image of a chalkboard">
-
-![image of a chalkboard](https://imgur.com/6CaswQS)
+<img src="https://i.imgur.com/OvfEDjW.png" alt="image of homescreen">
+<img src="https://i.imgur.com/eFR6lLt.png" alt="image of add form">
+<img src="https://i.imgur.com/YC0pv7O.png" alt="image of grocery list">
 
 ## Technologies Used
 
