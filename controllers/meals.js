@@ -6,7 +6,6 @@ module.exports = {
     createNewMeal,
     showNewMeal,
     deleteOneMeal,
-    updateMeal,
     deleteOneItem
 }
 
@@ -23,12 +22,6 @@ function deleteOneMeal(req, res) {
    Meal.findByIdAndRemove(req.params.id, function(err) {
        res.redirect('/meals');
    })
-}
-
-function updateMeal(req, res) {
-    req.body.done = !!req.body.done;
-    Meal.update(req.params.id, req.body);
-    res.redirect(`/meals/${req.params.id}`);
 }
 
 function showNewMeal(req, res) {

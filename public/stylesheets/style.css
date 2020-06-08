@@ -4,19 +4,42 @@
 
 body {
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+  font-family: 'Montserrat', sans-serif;
+  background-image: url("https://i.imgur.com/ToD2rdd.png");
+  background-position: center bottom;
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+option {
+  font-family: 'Montserrat', sans-serif;  
 }
 
 a {
-  color: #00B7FF;
+  font-family: 'Bungee Shade', cursive;
+  font-size: 20px;
+  padding: 4px;
+  color: white;
+  border: 2px solid black;
+  /* background-color:rgba(0, 0, 0, 1); */
+  background-color:rgba(15, 47, 75, 1);
 }
 
 li {
   list-style: none;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
 }
 
-table{
+.item {
+  border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  background-color:rgba(255, 255, 255, .8);
+}
+
+table {
   border: 1px solid black;
+  background-color:rgba(255, 255, 255, .9);
 }
 
 th {
