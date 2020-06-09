@@ -5,7 +5,7 @@ module.exports = {
     getAllMeals,
     createNewMeal,
     //showNewMeal,
-    deleteOneMeal,
+    // deleteOneMeal,
     deleteOneItem
 }
 
@@ -20,17 +20,20 @@ function deleteOneItem(req, res) {
     });
 }
 
-function deleteOneMeal(req, res) {
-    Meal.find(req.params.id, function(err) {
-        res.send('this is a resource');
-    })
-//     Meal.findByIdAndRemove(req.params.id, function(err, meal) {
-//        console.log(req.params.id, '<<<< req params id <<<<');
-//        console.log(meal, 'console log meal <<<<<<');
-//         res.send('this is a resource');
-//         res.redirect('/');
-//    });
-}
+// function deleteOneMeal(req, res) {
+//     Meal.findByIdAndRemove(req.params.id, function(err) {
+//         Meal.find({}, function(err, allMealsFromDb) {
+//             res.render('index', {
+//                 allMealsReferenceForEJS: allMealsFromDb,
+//             });
+//             console.log(allMealsReferenceForEJS, 'console log <<<<<<<<<<<<');
+//         });
+//     });
+// }
+
+// function deleteOneMeal(req, res) {
+
+// }
 
 // function showNewMeal(req, res) {
 //     Meal.find({}, function(err, allMealsFromDb) {
@@ -43,7 +46,7 @@ function createNewMeal(req, res) {
         return {content: item.trim()};
     });
     Meal.create(req.body, function(err, newMeal) {
-        res.redirect('/meals');
+        res.redirect('/');
     });
 }
 
